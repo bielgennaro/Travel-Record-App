@@ -5,19 +5,20 @@
              Title="Travel Record"
              ios:Page.UseSafeArea="true"
              x:Class="TravelRecordApp.MainPage">
-
-    <StackLayout Margin="15"
+    
+    <StackLayout Margin="20"
                  VerticalOptions="Center">
 
         <Entry x:Name="emailEntry"
                Placeholder="Email"
                Keyboard="Email" />
+
         <Entry x:Name="passwordEntry"
                Placeholder="Password"
                IsPassword="True" />
+        
         <Button x:Name="Button"  Text="Login"
-                BackgroundColor="#3F84E5"
-                TextColor="White"
+                Style="{StaticResource normalButton}"
                 Clicked="LoginButton_Clicked" />
     </StackLayout>
 </ContentPage>
