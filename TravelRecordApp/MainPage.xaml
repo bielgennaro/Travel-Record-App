@@ -5,7 +5,7 @@
              Title="Travel Record"
              ios:Page.UseSafeArea="true"
              x:Class="TravelRecordApp.MainPage">
-    
+
     <StackLayout Margin="20"
                  VerticalOptions="Center">
 
@@ -16,7 +16,7 @@
         <Entry x:Name="passwordEntry"
                Placeholder="Password"
                IsPassword="True" />
-        
+
         <Button x:Name="Button"  Text="Login"
                 Style="{StaticResource normalButton}"
                 Clicked="LoginButton_Clicked" />

@@ -3,6 +3,8 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 
+using System.IO;
+
 namespace TravelRecordApp.Droid
 {
     [Activity(Label = "TravelRecordApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
@@ -15,9 +17,11 @@ namespace TravelRecordApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            var dbConn = "mongodb+srv://bielgennaro:yiDHs37zYe5IoBz5@travelrecord.joaqf4x.mongodb.net/?retryWrites=true&w=majority";
+            var dbName = "travel-record.sqlite";
+            var folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var fullPath = Path.Combine(folderPath, dbName);
 
-            LoadApplication(new App(dbConn));
+            LoadApplication(new App(fullPath));
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

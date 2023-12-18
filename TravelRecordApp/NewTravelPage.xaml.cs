@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿
+using SQLite;
 
 using System;
 using System.Collections.Generic;
@@ -15,32 +16,11 @@ namespace TravelRecordApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewTravelPage : ContentPage
-    {
-        private readonly IMongoCollection<Post> _postCollection;
+    { 
 
         public NewTravelPage()
         {
             InitializeComponent();
-
-            var client = new MongoClient();
-            var database = client.GetDatabase("Travel-Record");
-            _postCollection = database.GetCollection<Post>("Post");
-
-            CheckIfCollectionHasData();
-        }
-
-        private void CheckIfCollectionHasData()
-        {
-            var count = _postCollection.CountDocuments(FilterDefinition<Post>.Empty);
-
-            if (count > 0)
-            {
-                DisplayAlert("Success", "Experience succesfully inserted", "OK");
-            }
-            else
-            {
-                DisplayAlert("Failure", "Experience failed to be inserted", "OK");
-            }
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
@@ -50,7 +30,16 @@ namespace TravelRecordApp
                 UserExperience = experienceEntry.Text
             };
 
-            _postCollection.InsertOne(post);
+            var conn = new SQLiteConnection(App.DatabaseLocation);
+            conn.CreateTable<Post>();
+            var rows = conn.Insert(post);
+            conn.Close();
+
+            if (rows > 0)
+                DisplayAlert("Success", "Experience succesfully inserted", "OK");
+            else
+                DisplayAlert("Ops!", "Experience failed to be inserted, try again later", "OK");
+
         }
     }
 }
