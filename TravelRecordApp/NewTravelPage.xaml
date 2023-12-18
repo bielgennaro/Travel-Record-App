@@ -5,12 +5,12 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save"
-                     Clicked="ToolbarItem_Clicked"/>
+                     Clicked="ToolbarItem_Clicked" />
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="experienceEntry" Placeholder="Write your experience"/>
+            <Entry x:Name="experienceEntry" Placeholder="Write your experience" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

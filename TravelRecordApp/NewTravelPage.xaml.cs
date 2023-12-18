@@ -1,11 +1,6 @@
-﻿
-using SQLite;
+﻿using SQLite;
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using TravelRecordApp.Entities;
 
@@ -16,8 +11,7 @@ namespace TravelRecordApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewTravelPage : ContentPage
-    { 
-
+    {
         public NewTravelPage()
         {
             InitializeComponent();
@@ -39,7 +33,6 @@ namespace TravelRecordApp
                 DisplayAlert("Success", "Experience succesfully inserted", "OK");
             else
                 DisplayAlert("Ops!", "Experience failed to be inserted, try again later", "OK");
-
         }
     }
 }

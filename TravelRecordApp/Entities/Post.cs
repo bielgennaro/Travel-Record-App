@@ -1,8 +1,4 @@
-﻿
-
-
-
-using SQLite;
+﻿using SQLite;
 
 namespace TravelRecordApp.Entities
 {
