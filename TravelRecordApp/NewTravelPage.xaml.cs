@@ -21,7 +21,7 @@ namespace TravelRecordApp
         {
             var post = new Post
             {
-                UserExperience = experienceEntry.Text
+                UserExperience = userExperienceEntry.Text
             };
 
             using (var conn = new SQLiteConnection(App.DatabaseLocation))
